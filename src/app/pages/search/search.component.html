@@ -1,0 +1,86 @@
+<table align="center" style="position: relative; top:100px;">
+
+  <th style="padding-right: 200px">
+    <tr>
+
+        <div align="center" style="position: relative; bottom: 50px">
+          <img width="200px" height="200px" src="/assets/mapa.png" >
+        </div>
+
+    </tr>
+    <tr>
+      <label >Filter</label>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" >Country:</label>
+        </div>
+        <select class="custom-select" (change)="resultadoscity($event)">
+          <option selected>Choose...</option>
+          <option  value="1" *ngFor="let country of country" [value]="country.id" >{{country.fullName}}</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" >City:</label>
+        </div>
+        <select class="custom-select"  (change)="resultados(); resultadosfiltrocity($event)">
+          <option selected>Choose...</option>
+          <option  *ngFor="let city of city" [value]="city.id" >{{city.name}} </option>
+
+        </select>
+
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text">Category:</label>
+        </div>
+        <select class="custom-select"  (change)="resultados(); resultadosfiltrocategory($event)">
+          <option selected >Choose...</option>
+          <option *ngFor="let category of category" [value]="category.id">{{category.name}}</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text">Language:</label>
+        </div>
+        <select class="custom-select" >
+          <option selected >Choose...</option>
+          <option *ngFor="let language of language" value="1">{{language.fullName}}</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text">Currency:</label>
+        </div>
+        <select class="custom-select" >
+          <option selected >Choose...</option>
+          <option *ngFor="let currency of currency" value="1">{{currency.unit}}</option>
+        </select>
+      </div>
+
+      <label for="customRange3">Cost per day:</label>
+      <input style="position: relative; left: 20px" type="range" class="custom-range" min="0" max="200" step="10" id="customRange3">
+
+    </tr>
+  </th>
+  <th>
+    <div class="card" style="width: 18rem; position: relative; bottom: 100px" >
+      <div class="card-header"align="center">
+        Results
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"  routerLink="/place" *ngFor=" let tplace of tplace" (click)="placeService.placeid = tplace.id">
+         <table>
+           <th>{{tplace.name}} </th>
+           <th>| Stars:{{tplace.stars}}</th>
+         </table>
+        </li>
+      </ul>
+    </div>
+  </th>
+
+</table>
+<div style="padding: 100px"></div>

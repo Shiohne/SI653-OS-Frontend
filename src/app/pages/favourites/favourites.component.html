@@ -1,0 +1,20 @@
+<table>
+  <th style="position: relative; padding-top: 100px; padding-left: 400px">
+    <div class="card" style="width: 18rem;" align="center">
+      <div class="card-header"align="center">
+        Favourites
+      </div>
+      <ul class="list-group list-group-flush" >
+        <li class="list-group-item" *ngFor="let locatable of locatable" routerLink="/place" (click)="click(locatable.id)">{{mostrarfavoritos(locatable.id)}}
+          <table>
+            <th>{{tplace.name}} </th>
+            <th>| Stars:{{tplace.stars}}| </th>
+            <button (click)="delete(locatable.id)">Delete</button>
+          </table>
+          <p>{{favourite.description}}</p>
+        </li>
+      </ul>
+    </div>
+  </th>
+
+</table>

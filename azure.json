@@ -1,0 +1,17 @@
+{
+  "hosting": [
+    {
+      "app": {
+        "project": "goingto-app",
+        "target": "build",
+        "configuration": "production",
+        "path": "dist/goingto-app"
+      },
+      "azureHosting": {
+        "subscription": "ea191d2e-1458-4cdd-a74c-4a6178083f16",
+        "resourceGroupName": "goingto-app-static-deploy",
+        "account": "goingtoappstatic"
+      }
+    }
+  ]
+}
